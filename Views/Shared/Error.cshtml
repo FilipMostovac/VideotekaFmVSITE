@@ -1,0 +1,21 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-dark">Došlo je do pogreške!</h1>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<p>
+    <h3><code>@Model.ErrorMessage</code></h3>
+</p>
+
+<div>
+    <a type="submit" asp-action="Index" class="btn btn-dark">Nazad na listu rezervacija</a>
+</div>

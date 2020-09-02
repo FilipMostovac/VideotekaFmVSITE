@@ -1,0 +1,54 @@
+﻿@model IEnumerable<VideotekaFm.Models.Film>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Filmovi</h1>
+
+<p>
+    <a class="btn btn-dark" asp-area="" asp-controller="Filmovi" asp-action="Create">Novi film</a>
+</p>
+<table class="table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trajanje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kolicina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZanrId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a type="submit" asp-controller="Filmovi" asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trajanje)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kolicina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zanr.Naziv)
+                </td>
+                <td>
+                    <a class="btn btn-dark" asp-area="" asp-controller="Filmovi" asp-action="Edit" asp-route-id="@item.Id">Uredi</a>
+                    <a class="btn btn-dark" asp-area="" asp-controller="Filmovi" asp-action="Details" asp-route-id="@item.Id">Detalji</a>
+                    <a class="btn btn-dark" asp-area="" asp-controller="Filmovi" asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

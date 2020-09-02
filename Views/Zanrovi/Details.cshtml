@@ -1,0 +1,59 @@
+﻿@model VideotekaFm.Models.Zanr
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalji</h1>
+
+<div>
+    <h4>Žanr</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark">Uredi</a>
+    <a asp-action="Index" class="btn btn-dark">Nazad na listu žanrova</a>
+</div>
+<div>
+    <h4>Popis filmova za taj žanr:</h4>
+</div>
+<table class="table-dark">
+    <thead>
+        <tr>
+            <th>
+               Film
+            </th>
+            <th>
+                Trajanje
+            </th>
+            <th>
+                Količina
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var film in Model.Filmovi)
+{
+        <tr>
+            <td>
+                <a type="submit" asp-controller="Filmovi" asp-action="Details" asp-route-id="@film.Id">@Html.DisplayFor(modelItem => film.Naziv)</a>
+            </td>
+            <td>
+                @film.Trajanje
+            </td>
+            <td>
+                @film.Kolicina
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

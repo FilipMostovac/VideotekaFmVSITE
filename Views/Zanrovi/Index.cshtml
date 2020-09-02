@@ -1,0 +1,35 @@
+﻿@model IEnumerable<VideotekaFm.Models.Zanr>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Žanrovi</h1>
+
+<p>
+    <a class="btn btn-dark" asp-area="" asp-controller="Zanrovi" asp-action="Create">Novi žanr</a>
+</p>
+<table class="table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a type="submit" asp-controller="Zanrovi" asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
+            </td>
+            <td>
+                <a class="btn btn-dark" asp-area="" asp-controller="Zanrovi" asp-action="Edit" asp-route-id="@item.Id">Uredi</a>
+                <a class="btn btn-dark" asp-area="" asp-controller="Zanrovi" asp-action="Details" asp-route-id="@item.Id">Detalji</a>
+                <a class="btn btn-dark" asp-area="" asp-controller="Zanrovi" asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

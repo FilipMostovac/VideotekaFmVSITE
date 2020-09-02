@@ -1,0 +1,47 @@
+﻿@model VideotekaFm.Models.Rezervacija
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalji</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Clan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Clan.Prezime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Clan.Ime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Film)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Film.Naziv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PocetakPosudbe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PocetakPosudbe)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vraceno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vraceno)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id"  class="btn btn-dark">Uredi</a> 
+    <a asp-action="Index"  class="btn btn-dark">Nazad na listu rezervacija</a>
+</div>

@@ -1,0 +1,45 @@
+﻿@model VideotekaFm.Models.Rezervacija
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Uredi rezervaciju</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ClanId" class="control-label"></label>
+                <select asp-for="ClanId" class="form-control" asp-items="ViewBag.ClanId"></select>
+                <span asp-validation-for="ClanId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilmId" class="control-label"></label>
+                <select asp-for="FilmId" class="form-control" asp-items="ViewBag.FilmId"></select>
+                <span asp-validation-for="FilmId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PocetakPosudbe" class="control-label"></label>
+                <input asp-for="PocetakPosudbe" class="form-control" />
+                <span asp-validation-for="PocetakPosudbe" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Vraceno" /> @Html.DisplayNameFor(model => model.Vraceno)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spremi" class="btn btn-dark" />
+                <a type="submit" asp-action="Index" class="btn btn-dark">Nazad na listu rezervacija</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

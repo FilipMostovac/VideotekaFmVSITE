@@ -1,0 +1,42 @@
+﻿@model VideotekaFm.Models.Rezervacija
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h1>Jeste li sigurni da želite obrisati rezervaciju?</h1>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Clan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Clan.Prezime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Clan.Ime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Film)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Film.Naziv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PocetakPosudbe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PocetakPosudbe)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Obriši" class="btn btn-danger" />
+        <input type="submit" asp-action="Index" value="Nazad na listu rezervacija" class="btn btn-dark" />
+    </form>
+</div>

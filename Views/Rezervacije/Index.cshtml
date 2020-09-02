@@ -1,0 +1,59 @@
+﻿@model IEnumerable<VideotekaFm.Models.Rezervacija>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Rezervacije</h1>
+
+<p>
+    <a class="btn btn-dark" asp-area="" asp-controller="Rezervacije" asp-action="Create">Nova rezervacija</a>
+</p>
+<table class="table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClanId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilmId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PocetakPosudbe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vraceno)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clan.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clan.Ime)
+            </td>
+            <td>
+                <a type="submit" asp-controller="Filmovi" asp-action="Details" asp-route-id="@item.Film.Id">@Html.DisplayFor(modelItem => item.Film.Naziv)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PocetakPosudbe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vraceno)
+            </td>
+            <td>
+                <a class="btn btn-dark" asp-area="" asp-controller="Rezervacije" asp-action="Edit" asp-route-id="@item.Id">Uredi</a>
+                <a class="btn btn-dark" asp-area="" asp-controller="Rezervacije" asp-action="Details" asp-route-id="@item.Id">Detalji</a>
+                <a class="btn btn-dark" asp-area="" asp-controller="Rezervacije" asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
